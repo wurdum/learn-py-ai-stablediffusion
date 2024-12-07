@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "learn-py-ai-stablediffusion"
+version = "0.1.0"
+description = ""
+authors = ["Pavlo Rytikov <pavel.ritikov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+diffusers = "^0.31.0"
+torch = "^2.5.1"
+transformers = "^4.47.0"
+accelerate = "^1.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+main = "learn_py_ai_stablediffusion.main:main"
