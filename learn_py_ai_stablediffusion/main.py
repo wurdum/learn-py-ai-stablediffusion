@@ -14,11 +14,11 @@ class ImageGenerator:
         Args:
             model_id: Hugging Face model ID for Stable Diffusion
         """
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.pipe = StableDiffusionPipeline.from_pretrained(
-            model_id,
-            torch_dtype=torch.float32
-        ).to(self.device)
+        pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+
+        pipe.enable_attention_slicing()
+
+        self.pipe = pipe.to("mps")
 
     def generate(
             self,
